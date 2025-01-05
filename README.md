@@ -103,8 +103,7 @@ Add the following lines to your crontab:
 
 ### 2. Web Interface
 
-- The decoded files are listed in the `bpq/HTML/7plus` directory.
 - A `list.csv` file is automatically generated to index the files in this directory.
 - The `index.html` file uses `list.csv` to display the decoded files when you visit the web UI:  
 
-  [http://127.0.0.1:8080/7plus/index.html](http://127.0.0.1:8080/7plus/index.html)
+  [http://127.0.0.1:8008/7plus/index.html](http://127.0.0.1:8008/7plus/index.html)
