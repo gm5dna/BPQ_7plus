@@ -20,7 +20,7 @@ BPQ Mail 7plus Find & Decode Linux Scripts, adapted for use on a Raspberry Pi ru
 
 ### 1. Clone the Repository
 
-Clone the repository to the LinBPQ basedir:
+Clone the repository to the LinBPQ base directory:
 
 ```bash
 cd /opt/oarc/bpq
@@ -88,10 +88,10 @@ Add the following lines to your crontab:
 
 ```bash
 # Find 7plus parts
-0 * * * * /opt/oarc/bpq/BPQ_7plus/find_7p.sh
+0 * * * * /opt/oarc/bpq/BPQ_7plus/find_7p.sh > /dev/null 2>&1
 
 # Reassemble them
-0 * * * * /opt/oarc/bpq/BPQ_7plus/7p_decode.sh
+0 * * * * /opt/oarc/bpq/BPQ_7plus/7p_decode.sh > /dev/null 2>&1
 ```
 
 ## Notes
