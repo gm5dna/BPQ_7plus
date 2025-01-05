@@ -98,8 +98,8 @@ Add the following lines to your crontab:
 
 ### 1. Configure the `latest_mailfile`
 
-- On its first run, the script creates a file named `latest_mailfile` with a default value of `0`.
-- To avoid processing all messages, you can manually create this file with a starting message number, e.g.: `3187`
+- On its first run, the script creates a file named `latest_mailfile` in the linbpq base directory with a default value of `0`.
+- To avoid processing all messages, you can manually create this file with a starting message number, e.g.: `3187`. It can also be helpful to reset this to 0 when troubleshooting the script.
 
 ### 2. Web Interface
 
