@@ -39,7 +39,7 @@ MAIL_IN=$BASE_BPQ/Mail/Import/mail.in
 #
 # Name (and path) of the 7plus program
 #
-SPLUS=$BASE_BPQ/7plus/7plus
+SPLUS=$BASE_BPQ/BPQ_7plus/7plus
 #
 # Name of the file created by mail Export
 #
@@ -47,7 +47,7 @@ SP_LOG=$DESTDIR/Mail/Export/7plus/7plus.log
 #
 # Directory of the 7plus files (parts)
 #
-SP_DIR=$BASE_BPQ/7plus/extracted
+SP_DIR=$BASE_BPQ/BPQ_7plus/extracted
 #
 # Directory for the decoded files
 #
