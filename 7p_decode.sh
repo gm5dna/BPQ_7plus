@@ -14,7 +14,7 @@
 #
 # Directory in which fbb software is installed
 #
-DESTDIR=/usr/sbin/linbpq
+DESTDIR=/opt/oarc/bpq/
 BASE_BPQ=$DESTDIR
 #
 # 7PLUS administrator for report mails
