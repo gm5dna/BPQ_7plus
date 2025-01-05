@@ -22,7 +22,7 @@
 #
 ##################################################################
 
-BASE_DIR="/opt/oarc/bpq/"
+BASE_DIR="/opt/oarc/bpq"
 MAIL_DIR="$BASE_DIR/Mail"
 OUT_DIR="$BASE_DIR/Mail/Export/7plus"
 OUTPUT_FILE="$OUT_DIR/7plus.log"
