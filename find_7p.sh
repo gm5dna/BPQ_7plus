@@ -22,7 +22,7 @@
 #
 ##################################################################
 
-BASE_DIR="/home/<usr>/linbpq"
+BASE_DIR="/usr/sbin/linbpq"
 MAIL_DIR="$BASE_DIR/Mail"
 OUT_DIR="$BASE_DIR/Mail/Export/7plus"
 OUTPUT_FILE="$OUT_DIR/7plus.log"

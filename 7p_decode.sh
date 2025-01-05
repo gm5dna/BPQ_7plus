@@ -14,12 +14,12 @@
 #
 # Directory in which fbb software is installed
 #
-DESTDIR=/home/username/linbpq
+DESTDIR=/usr/sbin/linbpq
 BASE_BPQ=$DESTDIR
 #
 # 7PLUS administrator for report mails
 # e.g. G7TAJ@GB7BEX.#38.GBR.EURO
-SP_ADM=callsign@bbsname.#HA
+SP_ADM=GM5DNA@GB7DNA.#76.GBR.EURO
 
 #
 # Number of days to delete old 7plus parts
