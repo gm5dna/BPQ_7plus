@@ -57,20 +57,37 @@ SP_RES=$BASE_BPQ/HTML/7plus
 
 function createlist() {
 
-  echo "Creating file list..." 
+  echo "Creating file list..."
 
   LIST_FILE=$SP_RES/list.csv
 
   > "$LIST_FILE"
 
   for FILE in $(ls -1t --time=birth "$SP_RES"); do
-    if [[ -f "$SP_RES/$FILE" && "$FILE" != "list.csv" && "$FILE" != "index.html" ]]; then
-        TIMESTAMP="$(stat -c%W "$SP_RES/$FILE")"
-        SIZE="$(stat -c%s "$SP_RES/$FILE")"
-        echo "$FILE,$TIMESTAMP,$SIZE" >> "$LIST_FILE"
+    if [[ ! -f "$SP_RES/$FILE" ]]; then
+      continue
     fi
+
+    # Skip gallery infrastructure and backup files
+    case "$FILE" in
+      list.csv|index.html|*.bak) continue ;;
+    esac
+
+    # Skip 7plus control/error files and other non-content
+    case "${FILE##*.}" in
+      err|7ix|7mf|inf) continue ;;
+    esac
+
+    # Skip transient working files
+    case "$FILE" in
+      7pbpq_tmp|7pbpq_mail) continue ;;
+    esac
+
+    TIMESTAMP="$(stat -c%W "$SP_RES/$FILE")"
+    SIZE="$(stat -c%s "$SP_RES/$FILE")"
+    echo "$FILE,$TIMESTAMP,$SIZE" >> "$LIST_FILE"
   done
-  
+
   echo "Finished file list creation."
 }
 
@@ -78,6 +95,8 @@ function createlist() {
 if [ ! -f $SP_LOG ]
 then
         echo "No $SP_LOG file to process..."
+        # Still regenerate the file list in case filters have changed
+        createlist
 exit 0
 fi
 
@@ -165,6 +184,11 @@ echo -n "trying  $SP_DIR/$name.7pl"
 done
 
 #
+# Clean up 7plus control/error files from the output directory
+#
+rm -f "$SP_RES"/*.err "$SP_RES"/*.7ix "$SP_RES"/*.7mf
+
+#
 # Delete old parts only in the SP_DIR directory
 #
 find $SP_DIR/* -maxdepth 1 -daystart -atime +$OLD_FILES -name '*' -print -exec rm {} \; > 7pbpq_tmp
@@ -194,8 +218,10 @@ then
     (echo "SP $ADM" ; echo "7p Decode report" ; cat 7pbpq_mail ; echo "/EX" ) >> $MAIL_IN
   done
   rm 7pbpq_mail
-  createlist
 fi
+
+# Always regenerate the file list
+createlist
 
 #
 # All correct... Bye !
