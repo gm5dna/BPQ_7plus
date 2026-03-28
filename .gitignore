@@ -1,0 +1,9 @@
+# Backup files
+*.bak
+
+# Extracted 7plus parts (working directory)
+extracted/
+
+# Transient working files
+7pbpq_tmp
+7pbpq_mail
